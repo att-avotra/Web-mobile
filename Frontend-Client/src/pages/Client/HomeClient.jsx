@@ -6,9 +6,11 @@ import { FaHeart, FaChevronCircleLeft, FaFacebook, FaInstagram, FaTwitter, FaWha
 import { BsBookmark, BsBookmarkFill } from "react-icons/bs";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
+import { useOutletContext } from 'react-router-dom'
 import "slick-carousel/slick/slick-theme.css";
 function HomeClient() {
   const [liked, setLiked] = useState(false);
+  const { cartIds = [], toggleCart = () => { } } = useOutletContext();
   const [saved, setSaved] = useState(false);
   const filteredData = data.filter(item => item.status === "most-sold");
   const sliderRef = useRef(null);
@@ -24,7 +26,7 @@ function HomeClient() {
   };
   return (
     <div className='w-full mt-14  flex justify-center items-center z-8'>
-      <div className='w-full max-w-7xl flex flex-col items-center px-6 py-4 '>
+      <div className='w-full max-w-7xl flex flex-col items-center px-6 py-4'>
         <section id='introduction' className='w-full h-full grid grid-cols-2 gap-1 max-h-[100vh]'>
           <div className="py-8 flex flex-col h-full gap-10">
             <h1 className="text-3xl text-bleu w-30">Achats en ligne</h1>
@@ -50,9 +52,8 @@ function HomeClient() {
                 <span className="text-orange-400 font-bold">
                   Commande Traitées
                 </span>
-                <span className='text-gray-600 text-center text-2xl'><CountUp end={67800} prefix="+"  duration={2}></CountUp></span>
+                <span className='text-gray-600 text-center text-2xl'><CountUp end={67800} prefix="+" duration={2}></CountUp></span>
               </div>
-
             </div>
             <div className="flex justify-start items-center">
               <button className="bouton-bleu py-3">Savoir Plus...</button>
@@ -87,7 +88,12 @@ function HomeClient() {
                       <button onClick={() => setSaved(!saved)} className="text-gray-500 hover:scale-110 transition cursor-pointer">
                         {saved ? <BsBookmarkFill /> : <BsBookmark />}
                       </button>
-                      <button className="text-gray-600 hover:scale-110 transition cursor-pointer">
+                      <button
+                        className={`text-gray-600 hover:scale-110 transition cursor-pointer ${cartIds.includes(item.id) ? "text-orange-600" : ""}`}
+                        onClick={() => {
+                          toggleCart(item.id)
+                        }}
+                      >
                         <FaShoppingCart />
                       </button>
                       <button className='bouton-bleu text-sm'>Savoir plus</button>
