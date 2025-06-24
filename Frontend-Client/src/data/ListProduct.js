@@ -1,5 +1,6 @@
 const data = [
   {
+    id:1,
     category:"Legumes",
     description:"bla balalalal al aa a",
     status:"most-sold",
@@ -9,6 +10,7 @@ const data = [
     images : "/src/assets/Interface/1.png"
   },
   {
+    id:2,
     category:"Legumes",
     description:"bla balalalal al aa a",
     status:"most-sold",
@@ -18,6 +20,7 @@ const data = [
     images : "/src/assets/Interface/2.png"
   },
   {
+    id:3,
     category:"Legumes",
     description:"bla balalalal al aa a",
     status:"new-product",
@@ -27,6 +30,7 @@ const data = [
     images : "/src/assets/Interface/03.png"
   },
   {
+    id:4,
     category:"Legumes",
     description:"bla balalalal al aa a",
     status:"simple-product",
@@ -36,6 +40,7 @@ const data = [
     images : "/src/assets/Interface/04.png"
   },
   {
+    id:5,
     category:"Patisserie",
     description:"bla balalalal al aa a",
     status:"most-sold",
@@ -45,6 +50,7 @@ const data = [
     images : "/src/assets/Interface/05.png"
   },
   {
+    id:6,
     category:"Patisserie",
     description:"bla balalalal al aa a",
     status:"new-product",
@@ -54,6 +60,7 @@ const data = [
     images : "/src/assets/Interface/06.png"
   },
   {
+    id:6,
     category:"Patisserie",
     description:"bla balalalal al aa a",
     status:"most-sold",
